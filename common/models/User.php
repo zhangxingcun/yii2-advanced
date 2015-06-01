@@ -206,4 +206,10 @@ class User extends ActiveRecord implements IdentityInterface
 		return parent::beforeSave($insert);
 	}
 	
+	public function afterDelete() 
+	{
+		$auth = Yii::$app->authManager;
+		return  $auth->revokeAll($this->id);
+	}
+	
 }

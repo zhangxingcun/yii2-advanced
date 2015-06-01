@@ -191,4 +191,9 @@ class Member extends ActiveRecord implements IdentityInterface
 			$this->password_hash = Yii::$app->security->generatePasswordHash($this->new_password);
 		return parent::beforeSave($insert);
 	}
+	public function afterDelete() 
+	{
+		$auth = Yii::$app->authManager;
+		return  $auth->revokeAll($this->id);
+	}
 }
