@@ -36,8 +36,8 @@ class m150601_003056_create_user extends Migration
 			'name' => Schema::TYPE_STRING . ' NOT NULL',
 
             'status' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT 10',
-            'created_at' => Schema::TYPE_INTEGER . ' NOT NULL',
-            'updated_at' => Schema::TYPE_INTEGER . ' NOT NULL',
+            'created_at' => Schema::TYPE_INTEGER ,
+            'updated_at' => Schema::TYPE_INTEGER ,
         ], $tableOptions);
         
         $this->createIndex('username', self::TBL_NAME, ['username'],true);
